@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html class="no-js">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Canvas</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="css/style.css" />
+    <!-- bootstrap -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+
+    <!-- Fontawesome -->
+    <script
+      src="https://kit.fontawesome.com/f5e131fae0.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <!-- body -->
+  <body class="bg-dark">
+    <!-- title -->
+    <h1 class="bg-dark navbar text-light">Canvas Application</h1>
+    <!-- main -->
+    <div id="canvas-container" class="row m-0">
+      <!-- button -->
+      <div class="col row p-0 m-0 button-group" style="max-width: 160px;">
+        <i class="col fa-solid fa-pencil" id="drawing-line"></i>
+        <i class="col fa-solid fa-t" id="drawing-text"></i>
+        <i class="col fa-solid fa-paintbrush"id="drawing-brush"></i>
+        <i class="col fa-solid fa-paint-roller" id="drawing-roller"></i>
+        <i class="col fa-regular fa-circle" id="drawing-circle"></i>
+        <i class="col fa-solid fa-play" id="drawing-triangle"></i>
+        <i class="col fa-regular fa-square" id="drawing-rectangle"></i>
+        <i class="col fa-solid fa-stamp" id="drawing-stamp"></i>
+        <i class="col fa-solid fa-spinner" id="drawing-bubbles"></i>
+        <i class="col fa-regular fa-image" id="drawing-input"></i>
+        <i class="col fa-solid fa-dice-one" id="drawing-randomcircle"></i>
+        <i class="col fa-solid fa-dice-two" id="drawing-randomrectangle"></i>
+        <i class="col fa-solid fa-dice-three" id="drawing-randomtriangle"></i>
+        <i class="col fa-solid fa-shuffle" id="drawing-random"></i>
+        <i class="col-12 col"></i>
+        <i class="col-12 col"></i>
+        <i class="col fa-solid fa-chevron-left" id="drawing-re-reserve"></i>
+        <i class="col fa-solid fa-chevron-right" id="drawing-reserve"></i>
+        <i class="col fa-solid fa-eraser" id="drawing-eraser"></i>
+        <i class="col fa-regular fa-trash-can" id="drawing-delete"></i>
+<<<<<<< HEAD
+        <i class="col fa-brands fa-sketch" id="drawing-sketch"></i>
+=======
+        
+>>>>>>> 3b3558954af55c153c275519681053d3ad7c007a
+        
+        <!-- Hold that <i class="col fa-solid fa-palette"id="palette"></i> -->
+        <i class="col-6 fa-regular fa-floppy-disk" id="save"></i>
+
+        <i class="col-12 col"></i>
+
+        <!-- custom buttom -->
+        <div class="col row" id="customBtnGroup">
+          <datalist id="datalistOptions">
+          </datalist>
+        </div>
+        
+      </div>
+    
+      <!-- canvas -->
+      <div class="col-10" id="canvas">
+        <canvas
+          id="canvas-real"
+          class="canvas"
+          width="980px"
+          height="720px"
+        ></canvas>
+        <canvas
+          id="canvas-draft"
+          class="canvas"
+          width="980px"
+          height="720px"
+        ></canvas>
+      </div>
+      
+    </div>
+    <div class="buttons">
+
+    <!-- jQuery -->
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.js"
+      integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- The common functionality -->
+    <script src="./javascript/canvas-common.js"></script>
+
+    <!-- The optional functionality -->
+    <script src="./javascript/drawing-line.js"></script>
+    <script src="./javascript/drawing-rectangle.js"></script>
+    <script src="./javascript/drawing-brush.js"></script>
+    <script src="./javascript/drawing-roller.js"></script>
+    <script src="./javascript/drawing-circle.js"></script>
+    <!-- <script src="./javascript/drawing-stamp.js"></script> -->
+    <script src="./javascript/drawing-eraser.js"></script>
+    <script src="./javascript/drawing-delete.js"></script>
+    <script src="./javascript/drawing-reserve.js"></script>
+    <script src="./javascript/drawing-re-reserve.js"></script>
+    <script src="./javascript/canvas-save.js"></script>
+    <script src="./javascript/drawing-bubbles.js"></script>
+    <script src="./javascript/drawing-text.js"></script>
+    <script src="./javascript/drawing-triangle.js"></script>
+    <script src="./javascript/drawing-random.js"></script>
+    <script src="./javascript/drawing-randomcircle.js"></script>
+    <script src="./javascript/drawing-randomrectangle.js"></script>
+    <script src="./javascript/drawing-randomtriangle.js"></script>
+    <script src="./javascript/drawing-input.js"></script>
+<<<<<<< HEAD
+    <script src="./javascript/drawing-sketch.js"></script>
+=======
+   
+    
+>>>>>>> 3b3558954af55c153c275519681053d3ad7c007a
+    
+    <!-- Caman-full -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/camanjs/4.1.2/caman.full.min.js"></script>
+    <canvas id="canvas-result"></canvas>
+
+    <!-- The button functionality -->
+    <script type="text/javascript">
+    $(()=>{
+      currentFunction =  new DrawingLine(contextReal)
+      $("#drawing-rectangle").click(() => {
+        currentFunction = new DrawingRectangle(contextReal, contextDraft);
+      });
+      $("#drawing-line").click(() => {
+        currentFunction = new DrawingLine(contextReal);
+      });  
+      $("#drawing-text").click(() => {
+        currentFunction = new DrawingText(contextReal, contextDraft);
+      }); 
+      $("#drawing-brush").click(() => {
+        currentFunction = new DrawingBrush(contextReal, contextDraft);
+      }); 
+      $("#drawing-roller").click(() => {
+        currentFunction = new DrawingRoller(contextReal, contextDraft);
+      }); 
+      $("#drawing-circle").click(() => {
+        currentFunction = new DrawingCircle(contextReal, contextDraft);
+      }); 
+      $("#drawing-triangle").click(() => {
+        currentFunction = new DrawingTriangle(contextReal, contextDraft);
+      }); 
+      $("#drawing-stamp").click(() => {
+        currentFunction = new DrawingStamp(contextReal, contextDraft);
+      }); 
+      $("#drawing-bubbles").click(() => {
+        currentFunction = new DrawingBubbles(contextReal, contextDraft);
+      }); 
+      $("#drawing-re-reserve").click(() => {
+        currentFunction = new DrawingReReserve(contextReal, contextDraft);
+      }); 
+      $("#drawing-reserve").click(() => {
+        currentFunction = new DrawingReserve(contextReal, contextDraft);
+      }); 
+      $("#drawing-eraser").click(() => {
+        currentFunction = new DrawingEraser(contextReal, contextDraft);
+      }); 
+      $("#drawing-delete").click(() => {
+        currentFunction = new DrawingDelete(contextReal);
+      }); 
+      $("#save").click(() => {
+        currentFunction = new CanvasSave(contextReal, contextDraft);
+      }); 
+      $("#drawing-random").click(() => {
+        currentFunction = new DrawingRandom(contextReal, contextDraft);
+      }); 
+      $("#drawing-randomcircle").click(() => {
+        currentFunction = new DrawingRandomCircle(contextReal, contextDraft);
+      }); 
+      $("#drawing-randomrectangle").click(() => {
+        currentFunction = new DrawingRandomRectangle(contextReal, contextDraft);
+      }); 
+      $("#drawing-randomtriangle").click(() => {
+        currentFunction = new DrawingRandomTriangle(contextReal, contextDraft);
+      }); 
+      $("#drawing-input").click(() => {
+        currentFunction = new DrawingInput(contextReal, contextDraft);
+      }); 
+      $("#drawing-sketch").click(() => {
+        currentFunction = new DrawingSketch(contextReal, contextDraft);
+      }); 
+      
+    })
+    </script>
+  </body>
+</html>
+
